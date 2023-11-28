@@ -16,7 +16,7 @@ public class UserService {
 
     // create
     public String create(User user) {
-        return "Success"
+        return "Success";
     }
 
     // findAll
