@@ -10,6 +10,11 @@ public class MyUserDetail implements UserDetails {
     private String username;
     private String password;
 
+    public MyUserDetail(String username, String password) {
+        this.username = username;
+        this.password = password;
+    }
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return null;
@@ -17,12 +22,12 @@ public class MyUserDetail implements UserDetails {
 
     @Override
     public String getPassword() {
-        return null;
+        return password;
     }
 
     @Override
     public String getUsername() {
-        return null;
+        return username;
     }
 
     @Override
