@@ -3,6 +3,7 @@ package com.ms.springsecurityproject.service;
 import com.ms.springsecurityproject.entity.User;
 import com.ms.springsecurityproject.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -15,13 +16,16 @@ public class UserService {
     @Autowired
     private UserRepository userRepository;
 
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
     // create
     public String create(User user) {
         String result;
         try {
             User newUser = new User();
             newUser.setUsername(user.getUsername());
-            newUser.setPassword(user.getPassword());
+            newUser.setPassword(passwordEncoder.encode(user.getPassword()));
             userRepository.save(newUser);
             result = "Success";
         } catch (Exception e) {
@@ -42,9 +46,9 @@ public class UserService {
     // findByUsername
     public User findByUsername(String username) {
         User user = new User();
-        Optional<User> findUser = userRepository.findByUsername(username);
-        if(!findUser.isEmpty()) {
-            user = findUser.get();
+        User findUser = userRepository.findByUsername(username);
+        if(findUser != null) {
+            user = findUser;
         }
         return user;
     }
