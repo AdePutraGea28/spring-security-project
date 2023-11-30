@@ -45,11 +45,7 @@ public class UserService {
 
     // findByUsername
     public User findByUsername(String username) {
-        User user = new User();
-        User findUser = userRepository.findByUsername(username);
-        if(findUser != null) {
-            user = findUser;
-        }
+        User user = userRepository.findByUsername(username);
         return user;
     }
 
