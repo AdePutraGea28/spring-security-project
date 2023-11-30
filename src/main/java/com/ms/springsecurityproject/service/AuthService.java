@@ -2,8 +2,7 @@ package com.ms.springsecurityproject.service;
 
 import com.ms.springsecurityproject.dto.UserRequestLogin;
 import com.ms.springsecurityproject.dto.UserResponseLogin;
-import com.ms.springsecurityproject.entity.User;
-import com.ms.springsecurityproject.security.JwtUtils;
+import com.ms.springsecurityproject.utils.JwtUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;

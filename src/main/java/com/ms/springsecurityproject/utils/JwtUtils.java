@@ -1,4 +1,4 @@
-package com.ms.springsecurityproject.security;
+package com.ms.springsecurityproject.utils;
 
 import com.ms.springsecurityproject.entity.User;
 import io.jsonwebtoken.Claims;
